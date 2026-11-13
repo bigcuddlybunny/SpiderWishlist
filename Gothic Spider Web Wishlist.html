@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Widow's Web — Gothic Wishlist 🕷️</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Google Fonts: Cinzel Decorative & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0A090D',
+            crypt: '#131118',
+            cryptLight: '#1C1824',
+            crimson: '#9E1B32',
+            crimsonBright: '#D92648',
+            venom: '#10B981',
+            venomGlow: '#34D399',
+            nightshade: '#7C3AED',
+            bone: '#F3EFEA',
+            ash: '#A39BA8',
+            silk: '#2E283B',
+          },
+          fontFamily: {
+            gothic: ['"Cinzel Decorative"', '"Cinzel"', 'Georgia', 'serif'],
+            serifHead: ['"Cinzel"', 'Georgia', 'serif'],
+            body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            crypt: '0 10px 30px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(158, 27, 50, 0.25)',
+            crimsonGlow: '0 0 20px rgba(217, 38, 72, 0.35)',
+            venomGlow: '0 0 18px rgba(16, 185, 129, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dark Gothic Damask & Silk Dot Background */
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: #F3EFEA;
+      background-color: #0A090D;
+      background-image:
+        radial-gradient(rgba(158, 27, 50, 0.14) 1px, transparent 1px),
+        radial-gradient(rgba(124, 58, 237, 0.08) 1px, #0A090D 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      overflow-x: hidden;
+    }
+
+    h1, .font-gothic {
+      font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+    }
+
+    h2, h3, .font-serifHead {
+      font-family: 'Cinzel', Georgia, serif;
+    }
+
+    /* Subtle Silk Thread Divider */
+    .silk-divider {
+      border-bottom: 1px dashed rgba(163, 155, 168, 0.28);
+    }
+
+    /* Hanging Spider on Silk Thread Animations */
+    @keyframes spiderDangle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(10px) rotate(3deg); }
+      50% { transform: translateY(4px) rotate(-2deg); }
+      75% { transform: translateY(14px) rotate(2deg); }
+    }
+
+    @keyframes legTwitchLeft {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-6deg); }
+    }
+
+    @keyframes legTwitchRight {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(6deg); }
+    }
+
+    @keyframes pulseCrimson {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(217, 38, 72, 0.55)); }
+      50% { filter: drop-shadow(0 0 14px rgba(217, 38, 72, 0.95)); }
+    }
+
+    .animate-dangle {
+      animation: spiderDangle 5.5s ease-in-out infinite;
+    }
+
+    .animate-venom-pulse {
+      animation: pulseCrimson 3s ease-in-out infinite;
+    }
+
+    /* Tactile Gothic Button */
+    .btn-gothic {
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-gothic:hover {
+      transform: translateY(-2px);
+    }
+    .btn-gothic:active {
+      transform: translateY(1px);
+    }
+
+    /* Custom Dark Scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+      height: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A090D;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3B2838;
+      border-radius: 9999px;
+      border: 2px solid #0A090D;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9E1B32;
+    }
+
+    /* Creepy Burst Particle */
+    .web-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: webBurst 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes webBurst {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.25) rotate(var(--rot));
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-16 relative selection:bg-crimsonBright selection:text-white">
+
+  <!-- ==================== CORNER COBWEBS & HANGING SPIDER DECOR ==================== -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden z-0" aria-hidden="true">
+    <!-- Top Left Intricate Corner Cobweb -->
+    <svg class="w-44 h-44 sm:w-64 sm:h-64 absolute top-0 left-0 text-ash/20" viewBox="0 0 200 200" fill="none">
+      <path d="M0 0L200 0M0 0L185 68M0 0L142 142M0 0L68 185M0 0L0 200" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M40 0C36 16 28 28 16 36C10 40 4 42 0 42" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M85 0C76 34 58 60 34 78C22 87 10 92 0 94" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M135 0C122 54 92 96 54 124C35 138 16 146 0 148" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M185 0C168 74 128 130 76 168C48 188 22 196 0 198" stroke="currentColor" stroke-width="1.1"/>
+    </svg>
+
+    <!-- Top Right Cobweb + Hanging Dangling Spider on Silk Thread -->
+    <div class="absolute top-0 right-2 sm:right-8 flex flex-col items-end">
+      <svg class="w-40 h-40 sm:w-56 sm:h-56 text-ash/20" viewBox="0 0 200 200" fill="none">
+        <path d="M200 0L0 0M200 0L15 68M200 0L58 142M200 0L132 185M200 0L200 200" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M160 0C164 16 172 28 184 36C190 40 196 42 200 42" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M115 0C124 34 142 60 166 78C178 87 190 92 200 94" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M65 0C78 54 108 96 146 124C165 138 184 146 200 148" stroke="currentColor" stroke-width="1.1"/>
+      </svg>
+      <!-- Dangling Spider on Thread -->
+      <div class="animate-dangle -mt-28 mr-8 sm:mr-14 flex flex-col items-center">
+        <div class="w-px h-24 sm:h-32 bg-gradient-to-b from-ash/40 to-ash/80"></div>
+        <svg class="w-10 h-10 sm:w-12 sm:h-12 -mt-1 drop-shadow-[0_0_8px_rgba(217,38,72,0.5)]" viewBox="0 0 64 64" fill="none">
+          <!-- Legs -->
+          <path d="M24 30L10 20L6 28M23 34L8 34L4 44M24 38L10 46L8 56M27 42L16 54L18 61" stroke="#A39BA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40 30L54 20L58 28M41 34L56 34L60 44M40 38L54 46L56 56M37 42L48 54L46 61" stroke="#A39BA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Abdomen & Head -->
+          <ellipse cx="32" cy="24" rx="10" ry="12" fill="#1C1824" stroke="#D92648" stroke-width="2"/>
+          <!-- Red Hourglass -->
+          <path d="M29 20H35L32 24L35 28H29L32 24L29 20Z" fill="#D92648"/>
+          <circle cx="32" cy="39" r="6.5" fill="#131118" stroke="#A39BA8" stroke-width="1.8"/>
+          <!-- Glowing Eyes -->
+          <circle cx="29.5" cy="41" r="1.5" fill="#34D399"/>
+          <circle cx="34.5" cy="41" r="1.5" fill="#34D399"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Bottom Left Subtle Web -->
+    <svg class="w-40 h-40 absolute bottom-0 left-0 text-ash/15 hidden sm:block" viewBox="0 0 200 200" fill="none">
+      <path d="M0 200L200 200M0 200L165 110M0 200L110 35M0 200L0 0" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M60 200C56 172 42 152 20 140C12 136 5 134 0 134" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M125 200C116 146 86 104 42 80C26 71 12 68 0 68" stroke="currentColor" stroke-width="1.1"/>
+    </svg>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none max-w-xs w-full px-4 sm:px-0"></div>
+
+  <!-- ==================== FRIEND / GIFT-GIVER MODE BANNER ==================== -->
+  <div id="friendModeBanner" class="hidden sticky top-0 z-40 bg-gradient-to-r from-crypt via-crimson/90 to-crypt text-bone border-b-2 border-crimsonBright shadow-crimsonGlow px-4 py-2.5 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+      <div class="flex items-center gap-2.5">
+        <span class="text-xl">🕸️</span>
+        <div>
+          <p class="font-serifHead font-bold text-sm sm:text-base tracking-wide leading-tight" id="friendBannerTitle">
+            Gift-Giver & Visitor View 🕷️
+          </p>
+          <p class="text-xs text-bone/85" id="friendBannerSubtitle">
+            Tap "Claim / Ensnare Gift 🕷️" on items you plan to get so no one buys duplicates!
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="exitPreviewBtn" onclick="exitFriendPreview()" class="hidden btn-gothic bg-obsidian hover:bg-cryptLight text-bone font-bold text-xs px-3.5 py-1.5 rounded-xl border border-crimsonBright">
+          ← Return to Edit Web
+        </button>
+        <button id="importSharedBtn" onclick="importSharedToOwnList()" class="hidden btn-gothic bg-venom/20 hover:bg-venom/30 text-venomGlow font-bold text-xs px-3.5 py-1.5 rounded-xl border border-venom">
+          + Clone to My Web
+        </button>
+        <button id="createOwnBtn" onclick="switchToOwnEmptyList()" class="hidden btn-gothic bg-obsidian/90 hover:bg-cryptLight text-bone font-bold text-xs px-3 py-1.5 rounded-xl border border-silk">
+          My Own Crypt 🕷️
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 pt-6 sm:pt-9">
+
+    <!-- ==================== GOTHIC HEADER CARD ==================== -->
+    <header class="bg-crypt/95 border-2 border-silk hover:border-crimson/60 transition-colors rounded-3xl shadow-crypt p-5 sm:p-7 mb-8 relative overflow-hidden">
+      <!-- Subtle Corner Web Accent inside Header -->
+      <svg class="w-24 h-24 absolute -top-2 -right-2 text-crimson/20 pointer-events-none" viewBox="0 0 100 100" fill="none">
+        <path d="M100 0L0 0M100 0L18 42M100 0L58 82M100 0L100 100" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M65 0C68 16 78 28 100 35" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M30 0C36 32 58 58 100 70" stroke="currentColor" stroke-width="1.3"/>
+      </svg>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <!-- Custom SVG Gothic Spider Mascot & Editable Title -->
+        <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5">
+          <!-- Creepy-Cute Black Widow / Gothic Arachnid Emblem -->
+          <div class="relative shrink-0">
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-cryptLight to-obsidian border-2 border-crimsonBright/80 flex items-center justify-center shadow-crimsonGlow">
+              <svg class="w-24 h-24 sm:w-28 sm:h-28 animate-venom-pulse" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Web Ring -->
+                <circle cx="60" cy="60" r="46" stroke="#9E1B32" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="4 4"/>
+                <circle cx="60" cy="60" r="32" stroke="#9E1B32" stroke-opacity="0.25" stroke-width="1"/>
+
+                <!-- Left 4 Jointed Spider Legs -->
+                <path d="M46 56L24 36L14 48" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M44 62L18 54L10 68" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M45 68L20 74L14 90" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M48 73L28 88L26 103" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Right 4 Jointed Spider Legs -->
+                <path d="M74 56L96 36L106 48" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M76 62L102 54L110 68" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M75 68L100 74L106 90" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M72 73L92 88L94 103" stroke="#F3EFEA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                <!-- Velvet Obsidian Abdomen (Top Bulb) -->
+                <ellipse cx="60" cy="46" rx="19" ry="22" fill="#16131D" stroke="#D92648" stroke-width="2.6"/>
+                <!-- Crimson Hourglass Marking -->
+                <path d="M54 37H66L60 45L66 53H54L60 45L54 37Z" fill="#D92648"/>
+
+                <!-- Cephalothorax / Cute Creepy Head -->
+                <circle cx="60" cy="72" r="13" fill="#1C1824" stroke="#F3EFEA" stroke-width="2.2"/>
+
+                <!-- Four Glowing Venomous Emerald Eyes -->
+                <circle cx="55" cy="73" r="2.7" fill="#34D399"/>
+                <circle cx="54.2" cy="72" r="0.9" fill="#FFFFFF"/>
+                <circle cx="65" cy="73" r="2.7" fill="#34D399"/>
+                <circle cx="64.2" cy="72" r="0.9" fill="#FFFFFF"/>
+                <circle cx="50.5" cy="70.5" r="1.6" fill="#10B981"/>
+                <circle cx="69.5" cy="70.5" r="1.6" fill="#10B981"/>
+
+                <!-- Cute Little Fangs -->
+                <path d="M56 83L57.5 88L59.5 84" stroke="#F3EFEA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M64 83L62.5 88L60.5 84" stroke="#F3EFEA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 whitespace-nowrap bg-obsidian border border-crimsonBright text-crimsonBright text-[11px] font-serifHead font-bold px-2.5 py-0.5 rounded-full shadow-md">
+              🕷️ Widow's Web
+            </span>
+          </div>
+
+          <!-- Editable Title & Summary Metrics -->
+          <div>
+            <div class="flex items-center justify-center sm:justify-start gap-2">
+              <h1 id="wishlistTitleDisplay" onclick="handleTitleClick()" title="Click to rename your web!" class="text-2xl sm:text-3xl md:text-4xl font-bold text-bone cursor-pointer hover:text-crimsonBright transition-colors flex items-center gap-2.5">
+                <span id="titleText">The Widow's Wishlist 🕷️</span>
+                <button id="editTitleBtn" onclick="event.stopPropagation(); enableTitleEdit();" aria-label="Edit Wishlist Title" class="text-xs bg-cryptLight hover:bg-crimson/30 text-ash hover:text-bone px-2.5 py-1 rounded-full border border-silk transition">
+                  ✎
+                </button>
+              </h1>
+              <input id="wishlistTitleInput" type="text" maxlength="44" class="hidden text-xl sm:text-3xl font-gothic font-bold text-bone bg-obsidian border-2 border-crimsonBright rounded-xl px-3 py-1 focus:outline-none w-full max-w-md" />
+            </div>
+
+            <p id="headerSubtitle" class="text-xs sm:text-sm text-ash mt-1.5">
+              Curated dark treasures, oddities & midnight desires spun into silk 🕸️
+            </p>
+
+            <!-- Live Stats Pill Bar -->
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 mt-4">
+              <div class="bg-obsidian/90 border border-silk px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-bone">
+                <span>🕸️ Trapped Wishes:</span>
+                <span id="statTotal" class="text-crimsonBright font-bold text-base">0</span>
+              </div>
+
+              <div class="bg-obsidian/90 border border-silk px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-bone">
+                <span>🕯️ Total Tribute:</span>
+                <button id="currencyToggleBtn" onclick="cycleCurrency()" title="Click to switch currency (€ / $ / £)" class="bg-cryptLight hover:bg-crimson/30 px-2 py-0.5 rounded-full border border-crimson/50 text-bone font-bold text-xs transition">
+                  €
+                </button>
+                <span id="statPrice" class="text-bone font-bold text-base">0.00</span>
+              </div>
+
+              <div class="bg-venom/10 border border-venom/40 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-venomGlow">
+                <span>🕷️ Ensnared:</span>
+                <span id="statGranted" class="font-bold text-base">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Owner Header Controls -->
+        <div id="ownerHeaderActions" class="flex flex-wrap sm:flex-col items-center justify-center gap-2 shrink-0 w-full md:w-auto">
+          <button onclick="openShareModal()" class="btn-gothic w-full sm:w-52 bg-gradient-to-r from-crimson to-crimsonBright hover:brightness-110 text-white font-serifHead font-bold px-4 py-2.5 rounded-2xl border border-rose-400/40 shadow-crimsonGlow flex items-center justify-center gap-2 text-sm">
+            <span>🕸️ Share Web</span>
+          </button>
+          <button onclick="enterFriendPreview()" class="btn-gothic w-full sm:w-52 bg-cryptLight hover:bg-silk text-bone font-semibold px-3.5 py-2 rounded-2xl border border-silk text-xs flex items-center justify-center gap-1.5">
+            <span>👁️ Preview Gift-Giver View</span>
+          </button>
+          <div class="flex items-center gap-2 w-full sm:w-52">
+            <button onclick="exportBackup()" title="Export JSON backup" class="btn-gothic flex-1 bg-obsidian hover:bg-cryptLight text-ash hover:text-bone font-semibold px-3 py-1.5 rounded-xl border border-silk text-xs flex items-center justify-center gap-1">
+              <span>⬇ Backup</span>
+            </button>
+            <label title="Restore JSON backup" class="btn-gothic flex-1 bg-obsidian hover:bg-cryptLight text-ash hover:text-bone font-semibold px-3 py-1.5 rounded-xl border border-silk text-xs flex items-center justify-center gap-1 cursor-pointer">
+              <span>⬆ Restore</span>
+              <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="importBackup(event)" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Friend Mode Header Controls -->
+        <div id="friendHeaderActions" class="hidden flex-col items-center justify-center gap-2 shrink-0 w-full md:w-auto">
+          <button onclick="openShareModal()" class="btn-gothic w-full sm:w-52 bg-gradient-to-r from-crimson to-crimsonBright text-white font-serifHead font-bold px-4 py-2.5 rounded-2xl border border-rose-400/40 shadow-crimsonGlow flex items-center justify-center gap-2 text-sm">
+            <span>🖼️ Save Gothic Card</span>
+          </button>
+          <button onclick="copyShareableList()" class="btn-gothic w-full sm:w-52 bg-cryptLight hover:bg-silk text-bone font-semibold px-3.5 py-2 rounded-2xl border border-silk text-xs flex items-center justify-center gap-1.5">
+            <span>📜 Copy Text Scroll</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ==================== ADD / EDIT WISH FORM ==================== -->
+    <section id="addWishSection" class="bg-crypt/95 border-2 border-silk rounded-3xl shadow-crypt p-5 sm:p-6 mb-7">
+      <div class="flex items-center justify-between cursor-pointer select-none" onclick="toggleFormSection()">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full bg-crimson text-white flex items-center justify-center font-serifHead font-bold text-lg shadow-crimsonGlow" id="formIconBadge">+</span>
+          <h2 id="formHeading" class="text-lg sm:text-xl font-bold text-bone tracking-wide">Spin a New Desire into the Web</h2>
+        </div>
+        <button type="button" id="toggleFormBtn" class="bg-obsidian hover:bg-cryptLight text-ash hover:text-bone font-semibold text-xs px-3.5 py-1.5 rounded-full border border-silk transition">
+          Hide Form ▲
+        </button>
+      </div>
+
+      <form id="wishForm" onsubmit="handleFormSubmit(event)" class="mt-5 grid grid-cols-1 md:grid-cols-12 gap-4">
+        <input type="hidden" id="editWishId" value="" />
+
+        <!-- Item Name -->
+        <div class="md:col-span-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Desire / Item Name <span class="text-crimsonBright">*</span></label>
+          <input type="text" id="itemName" required placeholder="e.g., Velvet Spiderweb Lace Choker 🕷️" class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-4 py-2.5 text-bone placeholder-ash/45 focus:outline-none transition" />
+        </div>
+
+        <!-- Category -->
+        <div class="md:col-span-3">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Category</label>
+          <select id="itemCategory" class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-3.5 py-2.5 text-bone focus:outline-none transition">
+            <option value="Oddities">🕷️ Oddities & Curios</option>
+            <option value="Fashion">🦇 Dark Fashion & Jewelry</option>
+            <option value="Books">📖 Grimoires & Books</option>
+            <option value="Tech">🔮 Tech & Gaming</option>
+            <option value="Home">🕯️ Crypt & Home Decor</option>
+            <option value="Treats">🍷 Dark Treats & Elixirs</option>
+          </select>
+        </div>
+
+        <!-- Priority -->
+        <div class="md:col-span-3">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Obsession Level</label>
+          <select id="itemPriority" class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-3.5 py-2.5 text-bone focus:outline-none transition">
+            <option value="3">Deadly Craving 🕷️🕷️🕷️</option>
+            <option value="2" selected>Lurking Desire 🕷️🕷️</option>
+            <option value="1">Whispered Wish 🕷️</option>
+          </select>
+        </div>
+
+        <!-- Price -->
+        <div class="md:col-span-3">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Price (<span class="currencyLabel">€</span> optional)</label>
+          <input type="number" id="itemPrice" step="0.01" min="0" placeholder="39.99" class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-4 py-2.5 text-bone placeholder-ash/45 focus:outline-none transition" />
+        </div>
+
+        <!-- Link URL -->
+        <div class="md:col-span-5">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Merchant / Store Link (optional)</label>
+          <input type="url" id="itemLink" placeholder="https://..." class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-4 py-2.5 text-bone placeholder-ash/45 focus:outline-none transition" />
+        </div>
+
+        <!-- Image URL + Preview -->
+        <div class="md:col-span-4">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Image URL (optional)</label>
+          <div class="flex items-center gap-2">
+            <input type="url" id="itemImage" oninput="updateImagePreview()" placeholder="Paste image link..." class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-4 py-2.5 text-bone placeholder-ash/45 focus:outline-none transition" />
+            <div id="imagePreviewBox" class="w-11 h-11 rounded-2xl border border-silk bg-obsidian shrink-0 flex items-center justify-center overflow-hidden">
+              <span class="text-base">🕸️</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes / Sizes -->
+        <div class="md:col-span-8">
+          <label class="block text-xs font-bold uppercase tracking-wider text-ash mb-1.5">Notes / Sizes / Variants</label>
+          <input type="text" id="itemNotes" placeholder="e.g., Size M, sterling silver finish or black velvet..." class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl px-4 py-2.5 text-bone placeholder-ash/45 focus:outline-none transition" />
+        </div>
+
+        <!-- Submit & Cancel -->
+        <div class="md:col-span-4 flex items-end gap-2">
+          <button type="submit" id="submitWishBtn" class="btn-gothic flex-1 bg-gradient-to-r from-crimson to-crimsonBright hover:brightness-110 text-white font-serifHead font-bold text-sm sm:text-base py-2.5 px-5 rounded-2xl border border-rose-400/40 shadow-crimsonGlow flex items-center justify-center gap-2">
+            <span>Trap in Web 🕷️</span>
+          </button>
+          <button type="button" id="cancelEditBtn" onclick="resetForm()" class="hidden btn-gothic bg-obsidian hover:bg-cryptLight text-ash hover:text-bone font-semibold py-2.5 px-4 rounded-2xl border border-silk">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==================== FILTER, SORT & SEARCH BAR ==================== -->
+    <section class="bg-crypt/90 border-2 border-silk rounded-3xl shadow-crypt p-4 sm:p-5 mb-6">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        
+        <!-- Category Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1.5 lg:pb-0" id="categoryFilters">
+          <button onclick="setCategoryFilter('All')" data-cat="All" class="cat-pill active shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🕸️ All
+          </button>
+          <button onclick="setCategoryFilter('Oddities')" data-cat="Oddities" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🕷️ Oddities
+          </button>
+          <button onclick="setCategoryFilter('Fashion')" data-cat="Fashion" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🦇 Fashion
+          </button>
+          <button onclick="setCategoryFilter('Books')" data-cat="Books" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            📖 Books
+          </button>
+          <button onclick="setCategoryFilter('Tech')" data-cat="Tech" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🔮 Tech
+          </button>
+          <button onclick="setCategoryFilter('Home')" data-cat="Home" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🕯️ Home
+          </button>
+          <button onclick="setCategoryFilter('Treats')" data-cat="Treats" class="cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border transition">
+            🍷 Treats
+          </button>
+        </div>
+
+        <!-- Status, Sort & Search Controls -->
+        <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5">
+          <select id="statusFilter" onchange="renderWishes()" class="bg-obsidian border border-silk rounded-2xl px-3 py-1.5 text-xs font-semibold text-bone focus:outline-none focus:border-crimsonBright">
+            <option value="all">Status: All</option>
+            <option value="unclaimed">Unclaimed / Wishing 🕸️</option>
+            <option value="claimed">Claimed by Guest 🎁</option>
+            <option value="granted">Ensnared / Granted 🕷️</option>
+          </select>
+
+          <select id="sortSelect" onchange="renderWishes()" class="bg-obsidian border border-silk rounded-2xl px-3 py-1.5 text-xs font-semibold text-bone focus:outline-none focus:border-crimsonBright">
+            <option value="newest">Sort: Newest Spun</option>
+            <option value="priority">Sort: Obsession (🕷️🕷️🕷️)</option>
+            <option value="priceLow">Sort: Price Low → High</option>
+            <option value="priceHigh">Sort: Price High → Low</option>
+          </select>
+
+          <div class="relative flex-1 sm:w-44">
+            <input type="text" id="searchInput" oninput="renderWishes()" placeholder="Search the web..." class="w-full bg-obsidian border border-silk focus:border-crimsonBright rounded-2xl pl-8 pr-3 py-1.5 text-xs text-bone placeholder-ash/50 focus:outline-none" />
+            <span class="absolute left-2.5 top-1/2 -translate-y-1/2 text-xs">🔍</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Starter Examples Banner -->
+      <div id="starterBanner" class="hidden mt-4 pt-3 silk-divider flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+        <span class="text-ash">
+          🕷️ Displaying 3 gothic starter curiosities so you can test the web!
+        </span>
+        <button onclick="clearStarterExamples()" class="bg-obsidian hover:bg-crimson/20 text-crimsonBright font-semibold px-3 py-1 rounded-full border border-crimson/50 transition">
+          Sweep Away Starters
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== WISHLIST GRID ==================== -->
+    <main id="wishlistGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Cards injected dynamically -->
+    </main>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden bg-crypt border-2 border-silk rounded-3xl p-10 text-center shadow-crypt my-6">
+      <div class="w-20 h-20 mx-auto mb-3 bg-obsidian rounded-full flex items-center justify-center border border-crimson/50 shadow-crimsonGlow">
+        <span class="text-4xl">🕸️</span>
+      </div>
+      <h3 class="text-xl font-bold text-bone mb-1">Nothing caught in this web yet...</h3>
+      <p class="text-sm text-ash max-w-md mx-auto">
+        Spin your first desire into the list above—oddities, velvet garments, dark reads, or midnight treats.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ==================== DELETE CONFIRMATION MODAL ==================== -->
+  <div id="deleteModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-crypt border-2 border-crimsonBright rounded-3xl max-w-sm w-full p-6 text-center shadow-crypt">
+      <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-obsidian border border-crimsonBright flex items-center justify-center text-2xl shadow-crimsonGlow">
+        🕷️
+      </div>
+      <h3 class="text-lg font-bold text-bone mb-1">Cut this thread from the web?</h3>
+      <p id="deleteModalItemName" class="text-xs sm:text-sm text-ash mb-5">
+        Are you sure you want to remove this desire?
+      </p>
+      <div class="flex items-center justify-center gap-3">
+        <button onclick="closeDeleteModal()" class="btn-gothic flex-1 bg-obsidian hover:bg-cryptLight text-bone font-semibold py-2.5 rounded-2xl border border-silk text-sm">
+          Keep It
+        </button>
+        <button id="confirmDeleteBtn" class="btn-gothic flex-1 bg-crimson hover:bg-crimsonBright text-white font-bold py-2.5 rounded-2xl border border-rose-400/40 text-sm">
+          Sever Thread
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SHARE WEB / WISHLIST MODAL ==================== -->
+  <div id="shareModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-crypt border-2 border-crimsonBright rounded-3xl max-w-2xl w-full p-5 sm:p-7 shadow-crypt relative my-auto max-h-[92vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeShareModal()" aria-label="Close Share Modal" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-obsidian hover:bg-crimson/30 border border-silk text-bone font-bold flex items-center justify-center transition">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center mb-5">
+        <span class="inline-block bg-obsidian border border-crimson/60 text-xs font-serifHead font-bold px-3 py-1 rounded-full text-crimsonBright mb-2">
+          🕸️ Summon Admirers & Gift-Givers
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-gothic font-bold text-bone">
+          Share Your Dark Web
+        </h2>
+        <p class="text-xs sm:text-sm text-ash mt-1">
+          Send an interactive magic link, download a gothic cobweb card PNG, or copy a formatted scroll!
+        </p>
+      </div>
+
+      <!-- Share Tabs -->
+      <div class="grid grid-cols-3 gap-2 bg-obsidian p-1.5 rounded-2xl border border-silk mb-5">
+        <button onclick="switchShareTab('link')" id="tabBtn-link" class="share-tab-btn py-2 px-2 rounded-xl font-serifHead font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 bg-crimson text-white shadow-crimsonGlow">
+          <span>🔗 Magic Link</span>
+        </button>
+        <button onclick="switchShareTab('card')" id="tabBtn-card" class="share-tab-btn py-2 px-2 rounded-xl font-serifHead font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 text-ash hover:text-bone">
+          <span>🖼️ Gothic Card</span>
+        </button>
+        <button onclick="switchShareTab('text')" id="tabBtn-text" class="share-tab-btn py-2 px-2 rounded-xl font-serifHead font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 text-ash hover:text-bone">
+          <span>📜 Text Scroll</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: MAGIC SHARE LINK -->
+      <div id="shareTab-link" class="share-tab-panel space-y-4">
+        <div class="bg-obsidian/90 border border-silk rounded-2xl p-4">
+          <div class="flex items-start gap-3 mb-3">
+            <div class="w-10 h-10 rounded-2xl bg-crimson/20 border border-crimsonBright text-crimsonBright flex items-center justify-center text-xl shrink-0">
+              🕷️
+            </div>
+            <div>
+              <h3 class="font-serifHead font-bold text-base sm:text-lg text-bone">Serverless Magic Web Link</h3>
+              <p class="text-xs sm:text-sm text-ash">
+                Your entire wishlist is compressed directly inside this <code class="text-venomGlow">#web=...</code> URL. When opened, guests see a read-only <strong>Gift-Giver View</strong> where they can click store links and tap <strong>"Claim / Ensnare Gift 🕷️"</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mt-3">
+            <input id="magicShareUrlInput" type="text" readonly class="flex-1 bg-crypt border border-silk rounded-2xl px-3.5 py-2.5 text-xs font-mono text-venomGlow select-all focus:outline-none" />
+            <button onclick="copyMagicShareLink()" class="btn-gothic bg-gradient-to-r from-crimson to-crimsonBright text-white font-serifHead font-bold px-5 py-2.5 rounded-2xl border border-rose-400/40 shadow-crimsonGlow text-sm shrink-0 flex items-center justify-center gap-1.5">
+              <span>📋 Copy Link</span>
+            </button>
+          </div>
+
+          <div class="mt-3 text-[11px] text-ash flex flex-wrap items-center justify-between gap-2">
+            <span>🔒 Zero servers or accounts—100% self-contained in the link.</span>
+            <button onclick="closeShareModal(); enterFriendPreview();" class="text-crimsonBright underline font-semibold hover:text-bone">
+              Preview Gift-Giver View →
+            </button>
+          </div>
+        </div>
+
+        <button onclick="nativeShareMagicLink()" class="btn-gothic w-full bg-cryptLight hover:bg-silk text-bone font-serifHead font-bold py-3 px-4 rounded-2xl border border-silk flex items-center justify-center gap-2 text-sm">
+          <span>📱 Dispatch via Messaging Apps (WhatsApp / Discord / iMessage)</span>
+        </button>
+      </div>
+
+      <!-- TAB 2: DOWNLOADABLE GOTHIC WISHLIST CARD PNG -->
+      <div id="shareTab-card" class="share-tab-panel hidden space-y-4">
+        <div class="bg-obsidian/90 border border-silk rounded-2xl p-4 flex flex-col items-center">
+          <p class="text-xs sm:text-sm text-ash text-center mb-3">
+            High-resolution dark cobweb stationery card ready to share in DMs or stories 🕸️
+          </p>
+
+          <div class="w-full max-w-[320px] rounded-2xl overflow-hidden border-2 border-crimsonBright/70 shadow-crimsonGlow bg-obsidian">
+            <canvas id="wishlistShareCanvas" class="w-full h-auto block"></canvas>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-2.5 w-full mt-4">
+            <button onclick="downloadWishlistCardPNG()" class="btn-gothic w-full sm:flex-1 bg-gradient-to-r from-crimson to-crimsonBright text-white font-serifHead font-bold py-2.5 px-4 rounded-2xl border border-rose-400/40 shadow-crimsonGlow flex items-center justify-center gap-2 text-sm">
+              <span>⬇ Download PNG Card</span>
+            </button>
+            <button onclick="shareWishlistCardImage()" class="btn-gothic w-full sm:flex-1 bg-cryptLight hover:bg-silk text-bone font-serifHead font-bold py-2.5 px-4 rounded-2xl border border-silk flex items-center justify-center gap-2 text-sm">
+              <span>📤 Share Image</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: FORMATTED TEXT SCROLL -->
+      <div id="shareTab-text" class="share-tab-panel hidden space-y-4">
+        <div class="bg-obsidian/90 border border-silk rounded-2xl p-4">
+          <label class="block text-xs sm:text-sm font-bold text-bone mb-2">
+            Formatted gothic wishlist scroll (ready for WhatsApp, Discord, or SMS):
+          </label>
+          <textarea id="formattedShareText" rows="8" readonly class="w-full bg-crypt border border-silk rounded-2xl p-3.5 text-xs sm:text-sm text-bone focus:outline-none resize-none"></textarea>
+          <button onclick="copyShareableList()" class="btn-gothic w-full mt-3 bg-gradient-to-r from-crimson to-crimsonBright text-white font-serifHead font-bold py-2.5 px-4 rounded-2xl border border-rose-400/40 shadow-crimsonGlow flex items-center justify-center gap-2 text-sm">
+            <span>📜 Copy Text Scroll</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Separate Storage Keys so it never collides with other apps
+    const STORAGE_KEY = 'spider_wishlist_v1';
+    const META_KEY = 'spider_wishlist_meta_v1';
+    const CLAIMS_KEY = 'spider_wishlist_claims_v1';
+
+    const CURRENCIES = ['€', '$', '£'];
+
+    // Application State
+    let wishes = [];
+    let meta = {
+      title: "The Widow's Wishlist 🕷️",
+      currency: '€',
+      initialized: false
+    };
+    let activeCategory = 'All';
+    let itemToDeleteId = null;
+    let isFormOpen = true;
+
+    // Shared / Gift-Giver View State
+    let isSharedLinkMode = false;
+    let isFriendPreviewMode = false;
+    let sharedWishes = [];
+    let sharedMeta = { title: "The Widow's Wishlist 🕷️", currency: '€' };
+    let localFriendClaims = {};
+
+    // Gothic Starter Curiosities (Pre-populated on first visit)
+    const STARTER_WISHES = [
+      {
+        id: 'spider-starter-1',
+        name: 'Handcrafted Sterling Silver Black Widow Pendant',
+        category: 'Oddities',
+        priority: 3,
+        price: 58.00,
+        link: 'https://example.com',
+        image: '',
+        notes: 'With a deep garnet abdomen & 18-inch oxidized silver chain 🕷️',
+        granted: false,
+        isStarter: true,
+        createdAt: Date.now() - 1000
+      },
+      {
+        id: 'spider-starter-2',
+        name: 'Velvet Cobweb Lace Bell-Sleeve Corset Top',
+        category: 'Fashion',
+        priority: 2,
+        price: 46.50,
+        link: 'https://example.com',
+        image: '',
+        notes: 'Size S/M in midnight black velvet with sheer spiderweb mesh',
+        granted: false,
+        isStarter: true,
+        createdAt: Date.now() - 2000
+      },
+      {
+        id: 'spider-starter-3',
+        name: 'Gilded Victorian Illustrated Book of Arachnids',
+        category: 'Books',
+        priority: 1,
+        price: 34.00,
+        link: '',
+        image: '',
+        notes: 'Hardcover collector edition with crimson gilded page edges 📖',
+        granted: true,
+        isStarter: true,
+        createdAt: Date.now() - 3000
+      }
+    ];
+
+    // Custom Gothic SVG Fallback Artwork per Category
+    const CATEGORY_CONFIG = {
+      Oddities: {
+        label: 'Oddities & Curios',
+        emoji: '🕷️',
+        badgeBg: 'bg-crimson/20 text-crimsonBright border-crimson/50',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <ellipse cx="60" cy="48" rx="22" ry="26" fill="#16131D" stroke="#D92648" stroke-width="2.2"/>
+          <path d="M54 38H66L60 47L66 56H54L60 47L54 38Z" fill="#D92648"/>
+          <path d="M40 36L22 22L14 34M38 46L16 44L10 58M40 56L20 66L16 78" stroke="#F3EFEA" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M80 36L98 22L106 34M82 46L104 44L110 58M80 56L100 66L104 78" stroke="#F3EFEA" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>`
+      },
+      Fashion: {
+        label: 'Dark Fashion & Jewelry',
+        emoji: '🦇',
+        badgeBg: 'bg-nightshade/20 text-purple-300 border-nightshade/50',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <path d="M35 24L48 16H72L85 24L96 42L82 50L76 38V74H44V38L38 50L24 42L35 24Z" fill="#1C1824" stroke="#D92648" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M50 16L60 28L70 16" stroke="#F3EFEA" stroke-width="2"/>
+          <circle cx="60" cy="44" r="5" fill="#D92648"/>
+          <path d="M48 44H72M60 32V56" stroke="#A39BA8" stroke-width="1.3"/>
+        </svg>`
+      },
+      Books: {
+        label: 'Grimoires & Books',
+        emoji: '📖',
+        badgeBg: 'bg-amber-950/50 text-amber-300 border-amber-700/50',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <rect x="34" y="16" width="52" height="58" rx="6" fill="#1C1824" stroke="#D92648" stroke-width="2.2"/>
+          <line x1="43" y1="16" x2="43" y2="74" stroke="#F3EFEA" stroke-width="2"/>
+          <circle cx="64" cy="45" r="11" stroke="#34D399" stroke-width="1.8"/>
+          <path d="M64 31V59M50 45H78M54 35L74 55M74 35L54 55" stroke="#34D399" stroke-width="1.3"/>
+        </svg>`
+      },
+      Tech: {
+        label: 'Tech & Gaming',
+        emoji: '🔮',
+        badgeBg: 'bg-emerald-950/60 text-venomGlow border-venom/40',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <circle cx="60" cy="42" r="24" fill="#16131D" stroke="#34D399" stroke-width="2.2"/>
+          <path d="M42 68H78L72 58H48L42 68Z" fill="#1C1824" stroke="#F3EFEA" stroke-width="2"/>
+          <path d="M51 38C55 32 65 32 69 38" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="60" cy="44" r="3" fill="#D92648"/>
+        </svg>`
+      },
+      Home: {
+        label: 'Crypt & Home Decor',
+        emoji: '🕯️',
+        badgeBg: 'bg-rose-950/60 text-rose-300 border-rose-700/50',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <rect x="48" y="36" width="24" height="36" rx="4" fill="#F3EFEA" stroke="#D92648" stroke-width="2"/>
+          <path d="M60 16C65 23 66 29 60 33C54 29 55 23 60 16Z" fill="#D92648" stroke="#FBBF24" stroke-width="1.5"/>
+          <path d="M40 72H80" stroke="#A39BA8" stroke-width="3" stroke-linecap="round"/>
+        </svg>`
+      },
+      Treats: {
+        label: 'Dark Treats & Elixirs',
+        emoji: '🍷',
+        badgeBg: 'bg-purple-950/60 text-purple-300 border-purple-700/50',
+        svg: `<svg viewBox="0 0 120 90" class="w-28 h-24" fill="none">
+          <path d="M44 22H76L72 44C70 52 50 52 48 44L44 22Z" fill="#9E1B32" stroke="#F3EFEA" stroke-width="2.2"/>
+          <line x1="60" y1="50" x2="60" y2="72" stroke="#F3EFEA" stroke-width="2.5"/>
+          <line x1="46" y1="72" x2="74" y2="72" stroke="#F3EFEA" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>`
+      }
+    };
+
+    // ==================== INITIALIZATION ====================
+    document.addEventListener('DOMContentLoaded', () => {
+      loadLocalClaims();
+      loadFromStorage();
+
+      // Check if opened via #web=... Magic Share Link
+      const sharedPayload = parseSharedHashFromUrl();
+      if (sharedPayload) {
+        isSharedLinkMode = true;
+        sharedWishes = sharedPayload.wishes;
+        sharedMeta = sharedPayload.meta;
+      }
+
+      updateViewModeUI();
+      applyMetaToUI();
+      updateCategoryPillStyles();
+      renderWishes();
+
+      window.addEventListener('hashchange', () => {
+        const payload = parseSharedHashFromUrl();
+        if (payload) {
+          isSharedLinkMode = true;
+          isFriendPreviewMode = false;
+          sharedWishes = payload.wishes;
+          sharedMeta = payload.meta;
+          updateViewModeUI();
+          applyMetaToUI();
+          renderWishes();
+        }
+      });
+
+      const titleInput = document.getElementById('wishlistTitleInput');
+      titleInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          saveTitleEdit();
+        } else if (e.key === 'Escape') {
+          cancelTitleEdit();
+        }
+      });
+      titleInput.addEventListener('blur', saveTitleEdit);
+    });
+
+    function isReadOnlyFriendMode() {
+      return isSharedLinkMode || isFriendPreviewMode;
+    }
+
+    function getActiveWishes() {
+      return isSharedLinkMode ? sharedWishes : wishes;
+    }
+
+    function getActiveMeta() {
+      return isSharedLinkMode ? sharedMeta : meta;
+    }
+
+    function loadLocalClaims() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(CLAIMS_KEY));
+        if (saved && typeof saved === 'object') {
+          localFriendClaims = saved;
+        }
+      } catch (e) {
+        localFriendClaims = {};
+      }
+    }
+
+    function saveLocalClaims() {
+      try {
+        localStorage.setItem(CLAIMS_KEY, JSON.stringify(localFriendClaims));
+      } catch (e) {
+        console.warn('Unable to save local friend claims.');
+      }
+    }
+
+    function loadFromStorage() {
+      try {
+        const savedMeta = JSON.parse(localStorage.getItem(META_KEY));
+        if (savedMeta) {
+          meta = { ...meta, ...savedMeta };
+        }
+        const savedWishes = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (Array.isArray(savedWishes)) {
+          wishes = savedWishes;
+        } else if (!meta.initialized) {
+          wishes = [...STARTER_WISHES];
+          meta.initialized = true;
+          saveToStorage();
+        }
+      } catch (err) {
+        console.error('Error loading spider wishlist:', err);
+        wishes = [];
+      }
+    }
+
+    function saveToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
+        localStorage.setItem(META_KEY, JSON.stringify(meta));
+      } catch (err) {
+        showToast('Could not save to local browser storage.');
+      }
+    }
+
+    // ==================== URL HASH COMPRESSION / ENCODING (#web=...) ====================
+    function encodeUtf8ToBase64Url(str) {
+      const bytes = new TextEncoder().encode(str);
+      let binString = '';
+      for (let i = 0; i < bytes.length; i++) {
+        binString += String.fromCharCode(bytes[i]);
+      }
+      return btoa(binString)
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+    }
+
+    function decodeBase64UrlToUtf8(base64Url) {
+      let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      while (base64.length % 4) {
+        base64 += '=';
+      }
+      const binString = atob(base64);
+      const bytes = new Uint8Array(binString.length);
+      for (let i = 0; i < binString.length; i++) {
+        bytes[i] = binString.charCodeAt(i);
+      }
+      return new TextDecoder().decode(bytes);
+    }
+
+    function generateMagicShareUrl() {
+      const compactWishes = wishes.map(w => {
+        const item = {
+          i: w.id,
+          n: w.name,
+          c: w.category,
+          p: w.priority,
+          g: w.granted ? 1 : 0
+        };
+        if (w.price !== null && w.price !== undefined) item.pr = w.price;
+        if (w.link) item.l = w.link;
+        if (w.image) item.im = w.image;
+        if (w.notes) item.no = w.notes;
+        return item;
+      });
+
+      const payload = {
+        v: 1,
+        t: meta.title,
+        cu: meta.currency,
+        w: compactWishes
+      };
+
+      const encoded = encodeUtf8ToBase64Url(JSON.stringify(payload));
+      const baseUrl = window.location.href.split('#')[0];
+      return `${baseUrl}#web=${encoded}`;
+    }
+
+    function parseSharedHashFromUrl() {
+      try {
+        const hash = window.location.hash || '';
+        if (!hash.startsWith('#web=')) return null;
+        const encoded = hash.slice(5).trim();
+        if (!encoded) return null;
+
+        const jsonStr = decodeBase64UrlToUtf8(encoded);
+        const parsed = JSON.parse(jsonStr);
+        if (!parsed || !Array.isArray(parsed.w)) return null;
+
+        const hydrated = parsed.w.map((item, idx) => ({
+          id: item.i || `shared-${idx}`,
+          name: String(item.n || 'Dark Curiosity'),
+          category: CATEGORY_CONFIG[item.c] ? item.c : 'Oddities',
+          priority: [1, 2, 3].includes(item.p) ? item.p : 2,
+          price: typeof item.pr === 'number' ? item.pr : null,
+          link: item.l ? String(item.l) : '',
+          image: item.im ? String(item.im) : '',
+          notes: item.no ? String(item.no) : '',
+          granted: Boolean(item.g),
+          createdAt: Date.now() - idx * 1000
+        }));
+
+        return {
+          meta: {
+            title: parsed.t ? String(parsed.t) : "Shared Widow's Web 🕷️",
+            currency: CURRENCIES.includes(parsed.cu) ? parsed.cu : '€'
+          },
+          wishes: hydrated
+        };
+      } catch (err) {
+        console.warn('Invalid #web= hash payload:', err);
+        return null;
+      }
+    }
+
+    // ==================== FRIEND / GIFT-GIVER VIEW MODE ====================
+    function updateViewModeUI() {
+      const friendMode = isReadOnlyFriendMode();
+      const banner = document.getElementById('friendModeBanner');
+      const addSection = document.getElementById('addWishSection');
+      const ownerActions = document.getElementById('ownerHeaderActions');
+      const friendActions = document.getElementById('friendHeaderActions');
+      const editTitleBtn = document.getElementById('editTitleBtn');
+      const titleDisplay = document.getElementById('wishlistTitleDisplay');
+
+      const exitPreviewBtn = document.getElementById('exitPreviewBtn');
+      const importSharedBtn = document.getElementById('importSharedBtn');
+      const createOwnBtn = document.getElementById('createOwnBtn');
+
+      if (friendMode) {
+        banner.classList.remove('hidden');
+        addSection.classList.add('hidden');
+        ownerActions.classList.add('hidden');
+        friendActions.classList.remove('hidden');
+        friendActions.classList.add('flex');
+        editTitleBtn.classList.add('hidden');
+        titleDisplay.classList.remove('cursor-pointer', 'hover:text-crimsonBright');
+        document.getElementById('headerSubtitle').textContent =
+          'Gift-Giver View 🕸️ Browse desires below & tap "Claim / Ensnare Gift 🕷️" to mark what you will get!';
+
+        if (isFriendPreviewMode) {
+          document.getElementById('friendBannerTitle').textContent = 'Previewing Gift-Giver & Visitor View 👁️';
+          document.getElementById('friendBannerSubtitle').textContent = 'This is how admirers & friends experience your shared #web link!';
+          exitPreviewBtn.classList.remove('hidden');
+          importSharedBtn.classList.add('hidden');
+          createOwnBtn.classList.add('hidden');
+        } else {
+          document.getElementById('friendBannerTitle').textContent = `Viewing ${sharedMeta.title}`;
+          document.getElementById('friendBannerSubtitle').textContent = 'Tap "Claim / Ensnare Gift 🕷️" to track gifts you plan to give, or clone this web!';
+          exitPreviewBtn.classList.add('hidden');
+          importSharedBtn.classList.remove('hidden');
+          createOwnBtn.classList.remove('hidden');
+        }
+      } else {
+        banner.classList.add('hidden');
+        addSection.classList.remove('hidden');
+        ownerActions.classList.remove('hidden');
+        friendActions.classList.add('hidden');
+        friendActions.classList.remove('flex');
+        editTitleBtn.classList.remove('hidden');
+        titleDisplay.classList.add('cursor-pointer', 'hover:text-crimsonBright');
+        document.getElementById('headerSubtitle').textContent =
+          'Curated dark treasures, oddities & midnight desires spun into silk 🕸️';
+      }
+    }
+
+    function enterFriendPreview() {
+      isFriendPreviewMode = true;
+      updateViewModeUI();
+      renderWishes();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast('Entered Gift-Giver Preview Mode 👁️🕷️');
+    }
+
+    function exitFriendPreview() {
+      isFriendPreviewMode = false;
+      updateViewModeUI();
+      renderWishes();
+      showToast('Returned to Web Editor 🕸️');
+    }
+
+    function importSharedToOwnList() {
+      if (!sharedWishes.length) return;
+      const cloned = sharedWishes.map((w, idx) => ({
+        ...w,
+        id: 'cloned-' + Date.now() + '-' + idx,
+        isStarter: false,
+        createdAt: Date.now() - idx * 500
+      }));
+      wishes = [...cloned, ...wishes];
+      meta.title = sharedMeta.title;
+      meta.currency = sharedMeta.currency;
+      meta.initialized = true;
+      saveToStorage();
+
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      isSharedLinkMode = false;
+      isFriendPreviewMode = false;
+      updateViewModeUI();
+      applyMetaToUI();
+      renderWishes();
+      triggerCobwebBurst(window.innerWidth / 2, window.innerHeight / 3);
+      showToast('Cloned desires into your own web! 🕷️🕸️');
+    }
+
+    function switchToOwnEmptyList() {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+      isSharedLinkMode = false;
+      isFriendPreviewMode = false;
+      updateViewModeUI();
+      applyMetaToUI();
+      renderWishes();
+      showToast('Opened your personal crypt wishlist 🕷️');
+    }
+
+    function toggleClaimGift(id, event) {
+      const wasClaimed = Boolean(localFriendClaims[id]);
+      if (wasClaimed) {
+        delete localFriendClaims[id];
+        showToast('Released gift claim 🕸️');
+      } else {
+        localFriendClaims[id] = true;
+        const x = event ? event.clientX : window.innerWidth / 2;
+        const y = event ? event.clientY : window.innerHeight / 2;
+        triggerCobwebBurst(x, y);
+        showToast('Gift ensnared! Saved to your gift tracker 🕷️🎁');
+      }
+      saveLocalClaims();
+      renderWishes();
+    }
+
+    // ==================== HEADER & PERSONALIZATION ====================
+    function applyMetaToUI() {
+      const currentMeta = getActiveMeta();
+      document.getElementById('titleText').textContent = currentMeta.title;
+      document.getElementById('currencyToggleBtn').textContent = currentMeta.currency;
+      document.querySelectorAll('.currencyLabel').forEach(el => {
+        el.textContent = currentMeta.currency;
+      });
+    }
+
+    function handleTitleClick() {
+      if (isReadOnlyFriendMode()) return;
+      enableTitleEdit();
+    }
+
+    function enableTitleEdit() {
+      if (isReadOnlyFriendMode()) return;
+      const display = document.getElementById('wishlistTitleDisplay');
+      const input = document.getElementById('wishlistTitleInput');
+      input.value = meta.title;
+      display.classList.add('hidden');
+      input.classList.remove('hidden');
+      input.focus();
+      input.select();
+    }
+
+    function saveTitleEdit() {
+      const display = document.getElementById('wishlistTitleDisplay');
+      const input = document.getElementById('wishlistTitleInput');
+      const newTitle = input.value.trim();
+      if (newTitle) {
+        meta.title = newTitle;
+        saveToStorage();
+        applyMetaToUI();
+      }
+      input.classList.add('hidden');
+      display.classList.remove('hidden');
+    }
+
+    function cancelTitleEdit() {
+      document.getElementById('wishlistTitleInput').classList.add('hidden');
+      document.getElementById('wishlistTitleDisplay').classList.remove('hidden');
+    }
+
+    function cycleCurrency() {
+      if (isSharedLinkMode) {
+        const idx = CURRENCIES.indexOf(sharedMeta.currency);
+        sharedMeta.currency = CURRENCIES[(idx + 1) % CURRENCIES.length];
+        applyMetaToUI();
+        renderWishes();
+        return;
+      }
+      const idx = CURRENCIES.indexOf(meta.currency);
+      meta.currency = CURRENCIES[(idx + 1) % CURRENCIES.length];
+      saveToStorage();
+      applyMetaToUI();
+      renderWishes();
+      showToast(`Currency switched to ${meta.currency} 🕯️`);
+    }
+
+    // ==================== FORM HANDLING ====================
+    function toggleFormSection() {
+      const form = document.getElementById('wishForm');
+      const btn = document.getElementById('toggleFormBtn');
+      isFormOpen = !isFormOpen;
+      if (isFormOpen) {
+        form.classList.remove('hidden');
+        btn.textContent = 'Hide Form ▲';
+      } else {
+        form.classList.add('hidden');
+        btn.textContent = 'Show Form ▼';
+      }
+    }
+
+    function updateImagePreview() {
+      const url = document.getElementById('itemImage').value.trim();
+      const box = document.getElementById('imagePreviewBox');
+      if (!url) {
+        box.innerHTML = '<span class="text-base">🕸️</span>';
+        return;
+      }
+      box.innerHTML = `<img src="${escapeHtml(url)}" alt="Preview" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<span class=\\'text-xs text-crimsonBright font-bold\\'>!</span>'" />`;
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const editId = document.getElementById('editWishId').value;
+      const name = document.getElementById('itemName').value.trim();
+      const category = document.getElementById('itemCategory').value;
+      const priority = parseInt(document.getElementById('itemPriority').value, 10);
+      const rawPrice = document.getElementById('itemPrice').value;
+      const price = rawPrice !== '' && !isNaN(parseFloat(rawPrice)) ? Math.max(0, parseFloat(rawPrice)) : null;
+      const link = document.getElementById('itemLink').value.trim();
+      const image = document.getElementById('itemImage').value.trim();
+      const notes = document.getElementById('itemNotes').value.trim();
+
+      if (!name) return;
+
+      if (editId) {
+        const index = wishes.findIndex(w => w.id === editId);
+        if (index !== -1) {
+          wishes[index] = {
+            ...wishes[index],
+            name,
+            category,
+            priority,
+            price,
+            link,
+            image,
+            notes,
+            isStarter: false
+          };
+          showToast('Desire updated in the web 🕷️');
+        }
+      } else {
+        const newWish = {
+          id: 'spider-wish-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+          name,
+          category,
+          priority,
+          price,
+          link,
+          image,
+          notes,
+          granted: false,
+          isStarter: false,
+          createdAt: Date.now()
+        };
+        wishes.unshift(newWish);
+        triggerCobwebBurst(window.innerWidth / 2, window.innerHeight / 3);
+        showToast('Trapped in your wishlist web! 🕸️');
+      }
+
+      meta.initialized = true;
+      saveToStorage();
+      resetForm();
+      renderWishes();
+    }
+
+    function startEditWish(id) {
+      const wish = wishes.find(w => w.id === id);
+      if (!wish) return;
+
+      if (!isFormOpen) toggleFormSection();
+
+      document.getElementById('editWishId').value = wish.id;
+      document.getElementById('itemName').value = wish.name;
+      document.getElementById('itemCategory').value = wish.category;
+      document.getElementById('itemPriority').value = String(wish.priority);
+      document.getElementById('itemPrice').value = wish.price !== null ? wish.price : '';
+      document.getElementById('itemLink').value = wish.link || '';
+      document.getElementById('itemImage').value = wish.image || '';
+      document.getElementById('itemNotes').value = wish.notes || '';
+      updateImagePreview();
+
+      document.getElementById('formHeading').textContent = 'Reweave Desire ✎';
+      document.getElementById('formIconBadge').textContent = '✎';
+      document.getElementById('submitWishBtn').innerHTML = '<span>Update Web 🕷️</span>';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+
+      document.getElementById('wishForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function resetForm() {
+      document.getElementById('wishForm').reset();
+      document.getElementById('editWishId').value = '';
+      document.getElementById('itemPriority').value = '2';
+      updateImagePreview();
+
+      document.getElementById('formHeading').textContent = 'Spin a New Desire into the Web';
+      document.getElementById('formIconBadge').textContent = '+';
+      document.getElementById('submitWishBtn').innerHTML = '<span>Trap in Web 🕷️</span>';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+    }
+
+    // ==================== WISH ACTIONS ====================
+    function toggleGranted(id, event) {
+      const wish = wishes.find(w => w.id === id);
+      if (!wish) return;
+
+      wish.granted = !wish.granted;
+      saveToStorage();
+      renderWishes();
+
+      if (wish.granted) {
+        const x = event ? event.clientX : window.innerWidth / 2;
+        const y = event ? event.clientY : window.innerHeight / 2;
+        triggerCobwebBurst(x, y);
+        showToast(`"${wish.name}" Ensnared & Granted! 🕷️✨`);
+      } else {
+        showToast('Returned to Unclaimed Wishes 🕸️');
+      }
+    }
+
+    function openDeleteModal(id) {
+      const wish = wishes.find(w => w.id === id);
+      if (!wish) return;
+      itemToDeleteId = id;
+      document.getElementById('deleteModalItemName').textContent = `Remove "${wish.name}" from the web?`;
+      document.getElementById('deleteModal').classList.remove('hidden');
+      document.getElementById('confirmDeleteBtn').onclick = confirmDeleteWish;
+    }
+
+    function closeDeleteModal() {
+      itemToDeleteId = null;
+      document.getElementById('deleteModal').classList.add('hidden');
+    }
+
+    function confirmDeleteWish() {
+      if (!itemToDeleteId) return;
+      wishes = wishes.filter(w => w.id !== itemToDeleteId);
+      saveToStorage();
+      closeDeleteModal();
+      renderWishes();
+      showToast('Thread severed ✂️');
+    }
+
+    function clearStarterExamples() {
+      wishes = wishes.filter(w => !w.isStarter);
+      saveToStorage();
+      renderWishes();
+      showToast('Swept away starter curiosities 🕸️');
+    }
+
+    // ==================== FILTERING, SORTING & RENDERING ====================
+    function setCategoryFilter(cat) {
+      activeCategory = cat;
+      updateCategoryPillStyles();
+      renderWishes();
+    }
+
+    function updateCategoryPillStyles() {
+      document.querySelectorAll('.cat-pill').forEach(pill => {
+        const isActive = pill.getAttribute('data-cat') === activeCategory;
+        if (isActive) {
+          pill.className = 'cat-pill active shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border border-rose-400/50 bg-crimson text-white shadow-crimsonGlow transition';
+        } else {
+          pill.className = 'cat-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold border border-silk bg-obsidian hover:bg-cryptLight text-ash hover:text-bone transition';
+        }
+      });
+    }
+
+    function renderWishes() {
+      const grid = document.getElementById('wishlistGrid');
+      const emptyState = document.getElementById('emptyState');
+      const starterBanner = document.getElementById('starterBanner');
+
+      const activeList = getActiveWishes();
+      const friendMode = isReadOnlyFriendMode();
+
+      // Summary Stats
+      const totalCount = activeList.length;
+      const grantedCount = activeList.filter(w => w.granted).length;
+      const totalPrice = activeList.reduce((sum, w) => sum + (typeof w.price === 'number' ? w.price : 0), 0);
+
+      document.getElementById('statTotal').textContent = totalCount;
+      document.getElementById('statGranted').textContent = grantedCount;
+      document.getElementById('statPrice').textContent = totalPrice.toFixed(2);
+
+      const hasStarters = !friendMode && activeList.some(w => w.isStarter);
+      if (hasStarters) {
+        starterBanner.classList.remove('hidden');
+      } else {
+        starterBanner.classList.add('hidden');
+      }
+
+      // Filter
+      const statusFilter = document.getElementById('statusFilter').value;
+      const searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+      const sortBy = document.getElementById('sortSelect').value;
+
+      let filtered = activeList.filter(wish => {
+        const isClaimed = Boolean(localFriendClaims[wish.id]);
+        if (activeCategory !== 'All' && wish.category !== activeCategory) return false;
+        if (statusFilter === 'unclaimed' && (wish.granted || isClaimed)) return false;
+        if (statusFilter === 'claimed' && !isClaimed) return false;
+        if (statusFilter === 'granted' && !wish.granted) return false;
+        if (searchQuery) {
+          const hay = `${wish.name} ${wish.notes || ''} ${wish.category}`.toLowerCase();
+          if (!hay.includes(searchQuery)) return false;
+        }
+        return true;
+      });
+
+      // Sort
+      filtered.sort((a, b) => {
+        if (sortBy === 'priority') {
+          if (b.priority !== a.priority) return b.priority - a.priority;
+          return b.createdAt - a.createdAt;
+        }
+        if (sortBy === 'priceLow') {
+          const pa = a.price !== null ? a.price : Infinity;
+          const pb = b.price !== null ? b.price : Infinity;
+          return pa - pb;
+        }
+        if (sortBy === 'priceHigh') {
+          const pa = a.price !== null ? a.price : -1;
+          const pb = b.price !== null ? b.price : -1;
+          return pb - pa;
+        }
+        return b.createdAt - a.createdAt;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      grid.innerHTML = filtered.map(wish => createWishCardHTML(wish)).join('');
+    }
+
+    function createWishCardHTML(wish) {
+      const currentMeta = getActiveMeta();
+      const friendMode = isReadOnlyFriendMode();
+      const isClaimed = Boolean(localFriendClaims[wish.id]);
+      const catInfo = CATEGORY_CONFIG[wish.category] || CATEGORY_CONFIG.Oddities;
+
+      const prioritySpiders = wish.priority === 3
+        ? '<span title="Deadly Craving" class="text-crimsonBright font-bold text-xs">🕷️🕷️🕷️</span>'
+        : wish.priority === 2
+          ? '<span title="Lurking Desire" class="text-rose-400 font-bold text-xs">🕷️🕷️</span>'
+          : '<span title="Whispered Wish" class="text-ash font-bold text-xs">🕷️</span>';
+
+      const priceBadge = wish.price !== null
+        ? `<span class="bg-obsidian border border-crimson/60 text-bone font-serifHead font-bold text-xs sm:text-sm px-3 py-0.5 rounded-full">${currentMeta.currency}${wish.price.toFixed(2)}</span>`
+        : `<span class="bg-obsidian border border-silk text-ash font-semibold text-xs px-2.5 py-0.5 rounded-full">Priceless 🕸️</span>`;
+
+      const safeName = escapeHtml(wish.name);
+      const safeNotes = wish.notes ? escapeHtml(wish.notes) : '';
+      const safeLink = wish.link ? escapeHtml(wish.link) : '';
+      const safeImg = wish.image ? escapeHtml(wish.image) : '';
+
+      // Image or Custom Gothic Category SVG Fallback
+      const mediaContent = safeImg
+        ? `<img src="${safeImg}" alt="${safeName}" class="w-full h-44 object-cover transition-transform duration-300 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+           <div style="display:none" class="w-full h-44 bg-gradient-to-br from-obsidian via-cryptLight to-crimson/20 flex flex-col items-center justify-center p-3">
+             ${catInfo.svg}
+           </div>`
+        : `<div class="w-full h-44 bg-gradient-to-br from-obsidian via-cryptLight to-crimson/20 flex flex-col items-center justify-center p-3">
+             ${catInfo.svg}
+           </div>`;
+
+      // Card Border State
+      let cardBorderClass = 'border-silk hover:border-crimsonBright/75';
+      if (wish.granted) {
+        cardBorderClass = 'border-venom/70 shadow-venomGlow';
+      } else if (isClaimed) {
+        cardBorderClass = 'border-nightshade/80';
+      }
+
+      // Top Left Status Badge
+      let statusStampHTML = '';
+      if (wish.granted) {
+        statusStampHTML = `
+          <div class="absolute top-3 left-3 z-20 bg-obsidian/95 border border-venom text-venomGlow font-serifHead font-bold text-xs px-3 py-1 rounded-full shadow-md flex items-center gap-1 -rotate-2">
+            <span>Ensnared 🕷️✨</span>
+          </div>`;
+      } else if (isClaimed) {
+        statusStampHTML = `
+          <div class="absolute top-3 left-3 z-20 bg-obsidian/95 border border-nightshade text-purple-300 font-serifHead font-bold text-xs px-3 py-1 rounded-full shadow-md flex items-center gap-1 -rotate-2">
+            <span>Claimed Gift 🎁</span>
+          </div>`;
+      }
+
+      // Top Right Edit/Delete Buttons (Owner Only)
+      const ownerCornerControls = !friendMode ? `
+        <div class="absolute top-3 right-3 z-20 flex items-center gap-1.5">
+          <button onclick="startEditWish('${wish.id}')" title="Edit wish" aria-label="Edit wish" class="w-8 h-8 rounded-full bg-obsidian/90 hover:bg-cryptLight border border-silk text-bone flex items-center justify-center text-xs transition">
+            ✎
+          </button>
+          <button onclick="openDeleteModal('${wish.id}')" title="Delete wish" aria-label="Delete wish" class="w-8 h-8 rounded-full bg-obsidian/90 hover:bg-crimson/40 border border-silk text-crimsonBright flex items-center justify-center text-xs transition">
+            ✕
+          </button>
+        </div>` : '';
+
+      // Primary Action Button
+      let primaryActionBtnHTML = '';
+      if (friendMode) {
+        if (wish.granted) {
+          primaryActionBtnHTML = `
+            <span class="${safeLink ? 'flex-1' : 'w-full'} bg-venom/15 text-venomGlow border border-venom/40 font-serifHead font-bold text-xs py-2 px-3 rounded-2xl text-center">
+              Already Ensnared ✨
+            </span>`;
+        } else {
+          primaryActionBtnHTML = `
+            <button onclick="toggleClaimGift('${wish.id}', event)" class="btn-gothic ${safeLink ? 'flex-1' : 'w-full'} ${isClaimed ? 'bg-nightshade/30 hover:bg-nightshade/45 text-purple-200 border-nightshade' : 'bg-gradient-to-r from-crimson to-crimsonBright text-white border-rose-400/40 shadow-crimsonGlow'} font-serifHead font-bold text-xs py-2 px-3 rounded-2xl border flex items-center justify-center gap-1">
+              <span>${isClaimed ? 'Claimed 🕷️ (Undo)' : 'Claim / Ensnare Gift 🕷️'}</span>
+            </button>`;
+        }
+      } else {
+        primaryActionBtnHTML = `
+          <button onclick="toggleGranted('${wish.id}', event)" class="btn-gothic ${safeLink ? 'flex-1' : 'w-full'} ${wish.granted ? 'bg-venom/20 hover:bg-venom/30 text-venomGlow border-venom' : 'bg-gradient-to-r from-crimson to-crimsonBright text-white border-rose-400/40 shadow-crimsonGlow'} font-serifHead font-bold text-xs py-2 px-3 rounded-2xl border flex items-center justify-center gap-1">
+            <span>${wish.granted ? 'Ensnared 🕷️ (Undo)' : 'Mark Ensnared 🕷️'}</span>
+          </button>`;
+      }
+
+      return `
+        <article class="group relative bg-crypt border-2 ${cardBorderClass} rounded-3xl shadow-crypt transition-all duration-200 flex flex-col overflow-hidden">
+          
+          ${statusStampHTML}
+          ${ownerCornerControls}
+
+          <!-- Framed Top Media -->
+          <div class="p-3 pb-0">
+            <div class="relative rounded-2xl overflow-hidden border border-silk bg-obsidian">
+              ${mediaContent}
+              <!-- Subtle corner silk web overlay -->
+              <svg class="w-12 h-12 absolute bottom-0 right-0 text-ash/20 pointer-events-none" viewBox="0 0 60 60" fill="none">
+                <path d="M60 60L10 60M60 60L22 34M60 60L42 14M60 60L60 10" stroke="currentColor" stroke-width="1"/>
+                <path d="M32 60C34 46 44 36 60 32" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card Body -->
+          <div class="p-4 pt-3.5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${catInfo.badgeBg}">
+                  ${catInfo.emoji} ${wish.category}
+                </span>
+                <div>
+                  ${prioritySpiders}
+                </div>
+              </div>
+
+              <div class="flex items-start justify-between gap-2 mb-1.5">
+                <h3 class="font-serifHead font-bold text-base sm:text-lg leading-snug text-bone ${wish.granted ? 'line-through opacity-65' : ''}">
+                  ${safeName}
+                </h3>
+                <div class="shrink-0">
+                  ${priceBadge}
+                </div>
+              </div>
+
+              ${safeNotes ? `
+                <p class="text-xs text-ash bg-obsidian/80 border border-silk rounded-2xl px-3 py-2 mt-2 leading-relaxed">
+                  “${safeNotes}”
+                </p>
+              ` : ''}
+            </div>
+
+            <!-- Footer Actions -->
+            <div class="mt-4 pt-3 silk-divider border-t border-dashed border-silk/70 border-b-0 flex items-center gap-2">
+              ${safeLink ? `
+                <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="btn-gothic flex-1 bg-obsidian hover:bg-cryptLight text-bone font-semibold text-xs py-2 px-3 rounded-2xl border border-silk text-center truncate">
+                  Inspect Link ↗
+                </a>
+              ` : ''}
+
+              ${primaryActionBtnHTML}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // ==================== SHARE MODAL, MAGIC LINK & GOTHIC CANVAS CARD ====================
+    function openShareModal() {
+      const currentList = getActiveWishes();
+      if (currentList.length === 0) {
+        showToast('Spin at least one wish into your web before sharing! 🕸️');
+        return;
+      }
+
+      const magicUrl = isSharedLinkMode ? window.location.href : generateMagicShareUrl();
+      document.getElementById('magicShareUrlInput').value = magicUrl;
+      document.getElementById('formattedShareText').value = buildFormattedShareText();
+
+      renderShareCardCanvas();
+      switchShareTab(isSharedLinkMode ? 'card' : 'link');
+
+      document.getElementById('shareModal').classList.remove('hidden');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.add('hidden');
+    }
+
+    function switchShareTab(tabName) {
+      ['link', 'card', 'text'].forEach(t => {
+        const panel = document.getElementById(`shareTab-${t}`);
+        const btn = document.getElementById(`tabBtn-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          btn.className = 'share-tab-btn py-2 px-2 rounded-xl font-serifHead font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 bg-crimson text-white shadow-crimsonGlow';
+        } else {
+          panel.classList.add('hidden');
+          btn.className = 'share-tab-btn py-2 px-2 rounded-xl font-serifHead font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1.5 text-ash hover:text-bone';
+        }
+      });
+    }
+
+    function copyTextToClipboardSafe(text, successMsg) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast('Please select the text & copy manually.');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    function copyMagicShareLink() {
+      const url = document.getElementById('magicShareUrlInput').value;
+      copyTextToClipboardSafe(url, 'Magic #web link copied! Send it to admirers 🕸️✨');
+    }
+
+    async function nativeShareMagicLink() {
+      const url = document.getElementById('magicShareUrlInput').value;
+      const currentMeta = getActiveMeta();
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: currentMeta.title,
+            text: `Peer into my dark wishlist web & claim a desire 🕷️🕸️`,
+            url: url
+          });
+          showToast('Dispatched magic web link! 🕷️');
+          return;
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+        }
+      }
+      copyMagicShareLink();
+    }
+
+    function buildFormattedShareText() {
+      const currentList = getActiveWishes();
+      const currentMeta = getActiveMeta();
+      const activeWishes = currentList.filter(w => !w.granted);
+      const grantedWishes = currentList.filter(w => w.granted);
+
+      let text = `🕸️ ${currentMeta.title} 🕸️\n\n`;
+
+      if (activeWishes.length > 0) {
+        text += `🕯️ Unclaimed Desires:\n`;
+        activeWishes.forEach((w, idx) => {
+          const spiders = '🕷️'.repeat(w.priority);
+          const priceStr = w.price !== null ? ` (${currentMeta.currency}${w.price.toFixed(2)})` : '';
+          text += `${idx + 1}. ${w.name}${priceStr} [${spiders}]\n`;
+          if (w.notes) text += `   Note: ${w.notes}\n`;
+          if (w.link) text += `   Link: ${w.link}\n`;
+        });
+      }
+
+      if (grantedWishes.length > 0) {
+        text += `\n🕷️ Already Ensnared:\n`;
+        grantedWishes.forEach(w => {
+          text += `• ${w.name} ✨\n`;
+        });
+      }
+
+      return text.trim();
+    }
+
+    function copyShareableList() {
+      const currentList = getActiveWishes();
+      if (currentList.length === 0) {
+        showToast('Add desires to your web first! 🕷️');
+        return;
+      }
+      copyTextToClipboardSafe(buildFormattedShareText(), 'Gothic wishlist scroll copied! 📜🕸️');
+    }
+
+    // ==================== HTML5 CANVAS GOTHIC COBWEB CARD GENERATOR ====================
+    function drawRoundedRectPath(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function wrapCanvasText(ctx, text, maxWidth) {
+      const words = text.split(' ');
+      const lines = [];
+      let current = '';
+      for (const word of words) {
+        const test = current ? `${current} ${word}` : word;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          lines.push(current);
+          current = word;
+        } else {
+          current = test;
+        }
+      }
+      if (current) lines.push(current);
+      return lines;
+    }
+
+    function drawCanvasCornerWeb(ctx, cornerX, cornerY, dirX, dirY, radius) {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(217, 38, 72, 0.28)';
+      ctx.lineWidth = 1.6;
+
+      const angles = [0, 0.35, 0.78, 1.22, Math.PI / 2];
+      angles.forEach(a => {
+        ctx.beginPath();
+        ctx.moveTo(cornerX, cornerY);
+        ctx.lineTo(cornerX + Math.cos(a) * radius * dirX, cornerY + Math.sin(a) * radius * dirY);
+        ctx.stroke();
+      });
+
+      [0.32, 0.62, 0.92].forEach(scale => {
+        const r = radius * scale;
+        ctx.beginPath();
+        for (let i = 0; i < angles.length - 1; i++) {
+          const x1 = cornerX + Math.cos(angles[i]) * r * dirX;
+          const y1 = cornerY + Math.sin(angles[i]) * r * dirY;
+          const x2 = cornerX + Math.cos(angles[i + 1]) * r * dirX;
+          const y2 = cornerY + Math.sin(angles[i + 1]) * r * dirY;
+          const cx = cornerX + Math.cos((angles[i] + angles[i + 1]) / 2) * (r * 0.82) * dirX;
+          const cy = cornerY + Math.sin((angles[i] + angles[i + 1]) / 2) * (r * 0.82) * dirY;
+          if (i === 0) ctx.moveTo(x1, y1);
+          ctx.quadraticCurveTo(cx, cy, x2, y2);
+        }
+        ctx.stroke();
+      });
+      ctx.restore();
+    }
+
+    function drawCanvasSpiderMascot(ctx, cx, cy, scale) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.scale(scale, scale);
+
+      // Silk thread from top
+      ctx.strokeStyle = 'rgba(243, 239, 234, 0.45)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, -85);
+      ctx.lineTo(0, -24);
+      ctx.stroke();
+
+      // Crimson Halo Ring
+      ctx.fillStyle = '#131118';
+      ctx.strokeStyle = '#D92648';
+      ctx.lineWidth = 3.5;
+      ctx.beginPath();
+      ctx.arc(0, 4, 48, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Left & Right Legs
+      ctx.strokeStyle = '#F3EFEA';
+      ctx.lineWidth = 3;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      const leftLegs = [
+        [[-14, -2], [-34, -20], [-42, -8]],
+        [[-16, 4], [-40, -4], [-46, 10]],
+        [[-15, 10], [-38, 16], [-42, 30]],
+        [[-12, 15], [-30, 28], [-32, 42]]
+      ];
+      leftLegs.forEach(pts => {
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        ctx.lineTo(pts[1][0], pts[1][1]);
+        ctx.lineTo(pts[2][0], pts[2][1]);
+        ctx.stroke();
+      });
+
+      const rightLegs = [
+        [[14, -2], [34, -20], [42, -8]],
+        [[16, 4], [40, -4], [46, 10]],
+        [[15, 10], [38, 16], [42, 30]],
+        [[12, 15], [30, 28], [32, 42]]
+      ];
+      rightLegs.forEach(pts => {
+        ctx.beginPath();
+        ctx.moveTo(pts[0][0], pts[0][1]);
+        ctx.lineTo(pts[1][0], pts[1][1]);
+        ctx.lineTo(pts[2][0], pts[2][1]);
+        ctx.stroke();
+      });
+
+      // Abdomen
+      ctx.fillStyle = '#16131D';
+      ctx.strokeStyle = '#D92648';
+      ctx.lineWidth = 2.6;
+      ctx.beginPath();
+      ctx.ellipse(0, -10, 18, 21, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Red Hourglass
+      ctx.fillStyle = '#D92648';
+      ctx.beginPath();
+      ctx.moveTo(-6, -18);
+      ctx.lineTo(6, -18);
+      ctx.lineTo(0, -10);
+      ctx.lineTo(6, -2);
+      ctx.lineTo(-6, -2);
+      ctx.lineTo(0, -10);
+      ctx.closePath();
+      ctx.fill();
+
+      // Head
+      ctx.fillStyle = '#1C1824';
+      ctx.strokeStyle = '#F3EFEA';
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.arc(0, 15, 12, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      // Glowing Emerald Eyes
+      ctx.fillStyle = '#34D399';
+      ctx.beginPath();
+      ctx.arc(-4.5, 16, 2.5, 0, Math.PI * 2);
+      ctx.arc(4.5, 16, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function renderShareCardCanvas() {
+      const canvas = document.getElementById('wishlistShareCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const W = 720;
+      const H = 960;
+      canvas.width = W;
+      canvas.height = H;
+
+      const currentList = getActiveWishes();
+      const currentMeta = getActiveMeta();
+
+      // 1. Deep Obsidian Background
+      ctx.fillStyle = '#0A090D';
+      ctx.fillRect(0, 0, W, H);
+
+      // Subtle crimson dust dots
+      ctx.fillStyle = 'rgba(217, 38, 72, 0.16)';
+      for (let gx = 28; gx < W; gx += 46) {
+        for (let gy = 28; gy < H; gy += 46) {
+          ctx.beginPath();
+          ctx.arc(gx + (gy % 92 === 28 ? 0 : 23), gy, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // 2. Crypt Stationery Frame
+      drawRoundedRectPath(ctx, 32, 32, W - 64, H - 64, 38);
+      ctx.fillStyle = '#131118';
+      ctx.fill();
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = '#D92648';
+      ctx.stroke();
+
+      // Inner Silk Thread Border
+      ctx.save();
+      drawRoundedRectPath(ctx, 48, 48, W - 96, H - 96, 28);
+      ctx.setLineDash([8, 8]);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(243, 239, 234, 0.25)';
+      ctx.stroke();
+      ctx.restore();
+
+      // Corner Cobwebs
+      drawCanvasCornerWeb(ctx, 48, 48, 1, 1, 145);
+      drawCanvasCornerWeb(ctx, W - 48, 48, -1, 1, 145);
+
+      // 3. Draw Hanging Spider Mascot
+      drawCanvasSpiderMascot(ctx, W / 2, 134, 1.1);
+
+      // 4. Title & Tribute Summary Pill
+      ctx.fillStyle = '#F3EFEA';
+      ctx.font = 'bold 33px "Cinzel Decorative", "Cinzel", Georgia, serif';
+      ctx.textAlign = 'center';
+      const titleLines = wrapCanvasText(ctx, currentMeta.title, W - 150).slice(0, 2);
+      let titleY = 232;
+      titleLines.forEach(line => {
+        ctx.fillText(line, W / 2, titleY);
+        titleY += 40;
+      });
+
+      const dateStr = new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      const activeWishes = currentList.filter(w => !w.granted);
+      const totalEst = activeWishes.reduce((s, w) => s + (typeof w.price === 'number' ? w.price : 0), 0);
+
+      const pillW = 490;
+      const pillH = 38;
+      drawRoundedRectPath(ctx, (W - pillW) / 2, titleY - 12, pillW, pillH, 19);
+      ctx.fillStyle = '#1C1824';
+      ctx.fill();
+      ctx.lineWidth = 1.8;
+      ctx.strokeStyle = '#9E1B32';
+      ctx.stroke();
+
+      ctx.fillStyle = '#F3EFEA';
+      ctx.font = 'bold 17px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText(`🕸️ ${activeWishes.length} Desires   •   🕯️ Tribute ${currentMeta.currency}${totalEst.toFixed(2)}   •   ${dateStr}`, W / 2, titleY + 13);
+
+      // 5. Top Wishes List (Up to 6 items)
+      const sortedForCard = [...activeWishes, ...currentList.filter(w => w.granted)]
+        .sort((a, b) => (a.granted === b.granted ? b.priority - a.priority : a.granted ? 1 : -1))
+        .slice(0, 6);
+
+      let itemY = titleY + 46;
+      const cardX = 74;
+      const cardW = W - 148;
+      const rowH = 84;
+
+      sortedForCard.forEach(wish => {
+        const catInfo = CATEGORY_CONFIG[wish.category] || CATEGORY_CONFIG.Oddities;
+
+        drawRoundedRectPath(ctx, cardX, itemY, cardW, rowH, 20);
+        ctx.fillStyle = wish.granted ? '#0F221C' : '#1A1622';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = wish.granted ? '#10B981' : '#2E283B';
+        ctx.stroke();
+
+        // Category Icon Circle
+        ctx.fillStyle = '#0A090D';
+        ctx.beginPath();
+        ctx.arc(cardX + 42, itemY + rowH / 2, 24, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.lineWidth = 1.8;
+        ctx.strokeStyle = '#D92648';
+        ctx.stroke();
+
+        ctx.font = '23px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(catInfo.emoji, cardX + 42, itemY + rowH / 2 + 8);
+
+        // Item Title
+        ctx.textAlign = 'left';
+        ctx.fillStyle = '#F3EFEA';
+        ctx.font = 'bold 20px "Cinzel", Georgia, serif';
+        let displayName = wish.name;
+        while (ctx.measureText(displayName).width > 325 && displayName.length > 4) {
+          displayName = displayName.slice(0, -4) + '...';
+        }
+        ctx.fillText(displayName, cardX + 80, itemY + 35);
+
+        // Priority & Note Subtitle
+        const spiders = wish.granted ? '🕷️ Ensnared!' : '🕷️'.repeat(wish.priority);
+        const notePreview = wish.notes ? ` • ${wish.notes}` : ` • ${wish.category}`;
+        ctx.fillStyle = wish.granted ? '#34D399' : '#A39BA8';
+        ctx.font = '600 15px "Plus Jakarta Sans", sans-serif';
+        let subLine = `${spiders}${notePreview}`;
+        while (ctx.measureText(subLine).width > 330 && subLine.length > 4) {
+          subLine = subLine.slice(0, -4) + '...';
+        }
+        ctx.fillText(subLine, cardX + 80, itemY + 62);
+
+        // Price Pill
+        const priceLabel = wish.price !== null ? `${currentMeta.currency}${wish.price.toFixed(2)}` : '🕸️';
+        ctx.font = 'bold 17px "Cinzel", serif';
+        const pWidth = Math.max(76, ctx.measureText(priceLabel).width + 26);
+        drawRoundedRectPath(ctx, cardX + cardW - pWidth - 16, itemY + (rowH - 36) / 2, pWidth, 36, 18);
+        ctx.fillStyle = '#0A090D';
+        ctx.fill();
+        ctx.lineWidth = 1.8;
+        ctx.strokeStyle = '#D92648';
+        ctx.stroke();
+
+        ctx.fillStyle = '#F3EFEA';
+        ctx.textAlign = 'center';
+        ctx.fillText(priceLabel, cardX + cardW - pWidth / 2 - 16, itemY + (rowH / 2) + 6);
+
+        itemY += rowH + 12;
+      });
+
+      if (currentList.length > 6) {
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#D92648';
+        ctx.font = 'bold 16px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(`+ ${currentList.length - 6} more desires trapped in my full web link! 🕸️`, W / 2, itemY + 14);
+      }
+
+      // 6. Footer Signature
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#A39BA8';
+      ctx.font = '600 16px "Cinzel", Georgia, serif';
+      ctx.fillText("Spun with Dark Devotion • The Widow's Web", W / 2, H - 62);
+    }
+
+    function downloadWishlistCardPNG() {
+      const canvas = document.getElementById('wishlistShareCanvas');
+      if (!canvas) return;
+      const link = document.createElement('a');
+      link.download = `widows-web-wishlist-${new Date().toISOString().slice(0, 10)}.png`;
+      link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Downloaded Gothic Wishlist Card PNG! 🖼️🕷️');
+    }
+
+    async function shareWishlistCardImage() {
+      const canvas = document.getElementById('wishlistShareCanvas');
+      if (!canvas) return;
+
+      canvas.toBlob(async (blob) => {
+        if (!blob) {
+          downloadWishlistCardPNG();
+          return;
+        }
+        const file = new File([blob], 'widows-web-wishlist.png', { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              title: getActiveMeta().title,
+              text: "The Widow's Wishlist 🕷️🕸️",
+              files: [file]
+            });
+            showToast('Shared Gothic Card! 🕷️');
+            return;
+          } catch (err) {
+            if (err && err.name === 'AbortError') return;
+          }
+        }
+        downloadWishlistCardPNG();
+      }, 'image/png');
+    }
+
+    // ==================== JSON BACKUP & RESTORE ====================
+    function exportBackup() {
+      const payload = {
+        exportedAt: new Date().toISOString(),
+        meta,
+        wishes
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `spider-wishlist-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded JSON backup! ⬇🕷️');
+    }
+
+    function importBackup(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && Array.isArray(parsed.wishes)) {
+            wishes = parsed.wishes;
+            if (parsed.meta) {
+              meta = { ...meta, ...parsed.meta, initialized: true };
+            }
+            saveToStorage();
+            applyMetaToUI();
+            renderWishes();
+            showToast(`Restored ${wishes.length} desires from backup! 🕸️`);
+          } else {
+            showToast('Invalid wishlist backup file.');
+          }
+        } catch (err) {
+          showToast('Could not read JSON backup file.');
+        }
+        event.target.value = '';
+      };
+      reader.readAsText(file);
+    }
+
+    // ==================== VISUAL BURST & TOASTS ====================
+    function triggerCobwebBurst(x, y) {
+      const symbols = ['🕷️', '🕸️', '🖤', '✨', '🩸', '🦇'];
+      for (let i = 0; i < 16; i++) {
+        const el = document.createElement('span');
+        el.textContent = symbols[i % symbols.length];
+        el.className = 'web-particle text-lg sm:text-xl select-none';
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        const angle = (Math.PI * 2 * i) / 16 + (Math.random() * 0.35);
+        const dist = 55 + Math.random() * 85;
+        el.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+        el.style.setProperty('--ty', `${Math.sin(angle) * dist - 25}px`);
+        el.style.setProperty('--rot', `${(Math.random() - 0.5) * 320}deg`);
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1350);
+      }
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'pointer-events-auto bg-crypt border border-crimsonBright text-bone font-semibold text-xs sm:text-sm px-4 py-3 rounded-2xl shadow-crimsonGlow flex items-center gap-2 transition-all duration-300 transform translate-y-0 opacity-100';
+      toast.innerHTML = `<span class="text-base">🕷️</span><span>${escapeHtml(message)}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(-8px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3200);
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+  </script>
+</body>
+</html>
